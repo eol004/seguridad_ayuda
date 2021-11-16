@@ -1,0 +1,59 @@
+OTRA FORMA DE CREAR LA PAGINA: 
+
+cd /var/www
+sudo mkdir pagina.es
+cd pagina.es
+sudo mkdir public
+
+PRIMERO:
+
+sudo apt-get update
+sudo apt-get install apache2
+
+SEGUNDO:
+
+sudo mkdir -p /var/www/pagina.es/public_html
+sudo chown -R $estefania:$estefania /var/www/pagina.es/public_html
+sudo chmod -R 755 /var/www
+
+TERCERO:
+
+nano /var/www/example.com/public_html/index.html
+//Poner dentro lo que se quiera mostrar en la pagina
+
+CUARTO: Crea el Primer Archivo Virtual Host
+
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/pagina.es.conf
+sudo nano /etc/apache2/sites-available/pagina.es.conf
+//dentro de la pagina:
+<VirtualHost *:80>
+
+        ServerAdmin admin@pagina.es
+        ServerName pagina.es
+        ServerAlias www.pagina.es
+        DocumentRoot /var/www/pagina.es/public
+
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+
+</VirtualHost>
+
+QUINTO:
+sudo a2ensite oagina.es.conf
+sudo a2dissite 000-default.conf
+sudo systemctl restart apache2
+
+SEXTO:
+//localhost 127.0.0.1
+Para ver los localhost:
+sudo nano /etc/hosts
+Para abrir:
+http://127.0.0.1/index.html
+
