@@ -1,0 +1,18 @@
+Para crear clave publica (id_rsa.pub) y clave privada (id_rsa)
+  ssh-keygen -t rsa
+  ssh-add /home/estefania/.ssh/id_rsa
+  cd /home/estefania/.ssh
+  ls
+  nano id_rsa
+  nano is_rsa.pub
+  
+Backup remoto con rsync
+ssh estefania@ip externa
+mkdir prueba
+rsync -arv -e ssh /home/estefania/Seguridad
+estefania@ip ext:/home/estefania/prueba
+
+Backup remoto con cp
+ssh estefania@ip ext
+mkdir prueba2
+scp /home/estefania/Escritorio/Seguridad/a lsi@35.206.155.12:home/lsi/prueba2
