@@ -1,3 +1,4 @@
+
 OTRA FORMA DE CREAR LA PAGINA: 
 
 cd /var/www
@@ -57,3 +58,9 @@ sudo nano /etc/hosts
 Para abrir:
 http://127.0.0.1/index.html
 
+https://www.digitalocean.com/community/tutorials/como-configurar-virtual-hosts-de-apache-en-ubuntu-16-04-es
+https://blog.ahierro.es/como-configurar-virtual-hosts-en-apache-y-ubuntu/ç
+https://cloud.google.com/compute/docs/tutorials/basic-webserver-apache
+
+PASAR DE HTTP A HTTPS
+https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04-es
