@@ -68,3 +68,18 @@ https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl
 LABORATORIO 5
 https://elbauldelprogramador.com/chuleta-de-comandos-para-gpg/
 https://www.genbeta.com/desarrollo/manual-de-gpg-cifra-y-envia-datos-de-forma-segura
+certificado personal: https://ca.signfiles.com/userEnroll.aspx
+Si queréis llevaros el par de claves que habéis creado a otra máquina, en el menú 
+Archivo/Exportar claves a un fichero del menú de Enigmail podéis generar un fichero 
+para luego importarlo en otro sitio y seguir usando ese mismo par de claves.
+➢Para compartir una clave pública dentro del menú de Enigmail seleccionad 
+Servidor de claves/Subir claves públicas. Subid vuestras claves públicas al 
+servidor keys.openpgp.org.
+Otra forma de compartir claves es enviar la clave pública directamente adjuntada en un 
+mail. Para ello, al escribir un nuevo mail hay que elegir Enigmail / Adjuntar mi clave 
+pública.
+Para importar una clave recibida como anexo, hay que pulsar con el botón derecho y 
+elegir Importar clave OpenPGP. También se puede obtener una clave pública buscándola 
+en un servidor. En el menú Servidor de Claves/Buscar claves se puede buscar usando el 
+nombre de la persona o el identificador de su clave. El identificador de mi clave pública 
+(que vais a necesitar) es 54444F3D361C8E20
