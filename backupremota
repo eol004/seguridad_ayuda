@@ -9,10 +9,14 @@ Para crear clave publica (id_rsa.pub) y clave privada (id_rsa)
 Backup remoto con rsync
 ssh estefania@ip externa
 mkdir prueba
-rsync -arv -e ssh /home/estefania/Seguridad
-estefania@ip ext:/home/estefania/prueba
+rsync -arv -e ssh /home/estefania/Seguridad lsi@ip ext:/home/lsi/prueba
 
 Backup remoto con cp
 ssh estefania@ip ext
-mkdir prueba2
-scp /home/estefania/Escritorio/Seguridad/a lsi@35.206.155.12:home/lsi/prueba2
+mkdir prueba
+scp /home/estefania/Escritorio/Seguridad/a lsi@35.206.155.12:home/lsi/prueba
+
+Abrir una conexion ssh desde la terminal : 
+		ssh usuario@IP_EXTERNA 
+    //Se introduce la contraseña y Yes
+		exit (Para cerrar la conexion)
