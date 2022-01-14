@@ -1,0 +1,28 @@
+Para evitar tener que introducir una y otra vez las mismas reglas, las reglas se pueden
+extraer a un fichero mediante el siguiente comando:
+$ sudo iptables-save > /home/alumno/Escritorio/fichero
+
+Tras reiniciar la máquina se pueden recuperar mediante:
+$ sudo iptables-restore < /home/alumno/Escritorio/fichero
+
+//1.QUE EL SERVIDOR DE GOOGLE CLOUD SÓLO ACEPTE CONEXIONES SSH DESDE MI MÁQUINA LOCAL 
+//Conseguir la IP local 
+ifconfig
+//Conexión a google cloud e instalar iptables
+ssh lsi@IP_EXTERNA
+sudo apt-get install iptables
+//Denegar todo
+sudo iptables -P INPUT DROP 
+sudo iptables -P OUTPUT DROP 
+sudo iptables -P FORWARD DROP 
+//Aceptar input, output y máquina local 
+sudo iptables -A INPUT -i lo -j ACCEPT 
+sudo iptables -A OUTPUT -i lo -j ACCEPT
+sudo iptables -A INPUT -i IP_LOCAL -p tcp --dport 22 -j ACCEPT
+//2.INSTALAR FTP EN EL SERVIDOR DE GOOGLE CLOUD Y HACER QUE SÓLO ACEPTE CONEXIONES DESDE ehu.eus
+sudo apt-get install vsfpd
+sudo iptables -A INPUT -s ehu.eus -p tcp --dport 22 -j ACCEPT
+//3.HACER QUE EL SERVIDOR DE GOOGLE CLOUD SÓLO ACEPTE CONEXIONES HTTPS 
+sudo iptables -A INPUT -i eth0 -p tcp --dport 443 --sport 1024:65535 -j ACCEPT
+//4.HACER QUE EL SERVIDOR DE GOOGLE CLOUD NO SE PUEDA CONECTAR A YOUTUBE 
+iptables -A OUTPUT -o tcp -m string --string "youtube.com" --algo kmp -j REJECT
