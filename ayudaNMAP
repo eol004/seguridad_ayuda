@@ -1,0 +1,33 @@
+AYUDA
+FUNCIONES NMAP
+//Puertos abiertos en pag.es, servicios y version de servicios
+sudo nmap ehu.eus
+
+//¿Que máquinas están activas en la red desde tu máquina a pag.es? (pista: traceroute).
+sudo nmap pag.es --traceroute
+
+//¿Qué puertos tiene abiertos una de las máquinas activas de la red?
+sudo nmap -v pag.es
+
+//¿Qué versiones de los servicios está usando una de las máquinas activas de la red?
+nmap -sV ehu.eus
+
+//¿Qué sistema operativo tiene una de las máquinas activas de la red?
+sudo nmap -O pag.es
+
+//¿Qué sistema operativo tiene tu servidor en Google Cloud (Según Nmap)?
+sudo nmap -O ipExt
+
+//¿Qué sistema operativo tiene scanme.nmap.org?
+sudo nmap -O scanme.nmap.org
+
+//Una vez determinado el Sistema Operativo, ¿Qué vulnerabilidades tiene? (pista:https://cve.mitre.org).
+nmap --script vuln -sV scanme.nmap.org
+
+//¿Cómo se puede usar nmap para detectar si una máquina tiene un firewall?
+nmap –sA ipDeLaMaquina (si pone filtered es que tiene firewall)
+nmap -sO -v ehu.eus
+
+https://www.stationx.net/nmap-cheat-sheet/
+https://platzi.com/tutoriales/1669-pentesting/11586-nmap-listado-de-comandos/?utm_source=google&utm_medium=paid&utm_campaign=14603491644&utm_adgroup=&utm_content=&gclid=CjwKCAiAlfqOBhAeEiwAYi43F-aBvZImcbHCK4i7kzfRjlTW5fHgT1DeAal6q18bg2XRjQVs78h-rRoCIiQQAvD_BwE&gclsrc=aw.ds
+
